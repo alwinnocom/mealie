@@ -249,6 +249,7 @@ export default defineComponent({
   },
   setup(props) {
     const api = useUserApi();
+    console.log("api = ", api);
     const { household } = useHouseholdSelf();
 
     const state = ref({
@@ -357,10 +358,12 @@ export default defineComponent({
     // Search
 
     const search = useRecipeSearch(api);
+    console.log("search = ", search);
     const planTypeOptions = usePlanTypeOptions();
 
     onMounted(async () => {
       await search.trigger();
+      console.log("onMounted search.trigger() Success");
     });
 
     return {
